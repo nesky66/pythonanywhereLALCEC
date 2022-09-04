@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% load static%}
+{% block title %} Blog {%endblock%}
+{% block content %}
+
+<nav class="container-fluid">
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v14.0" nonce="KNIfzx54"></script>
+  <div class="row ">
+    
+    {% if not blog %}
+
+      <strong><h1 style="color:red;">{{vacio}}</h1></strong>
+
+    {% else %}
+  
+      <div class="col-md-10 ">   
+        <nav class="container-fluid" style="background-color: rgba(225, 215, 205 , 0.65);"> 
+          {% if categ %}
+            <h2 >CATEGORIA: {{categ.upper}}</h2>
+          {% endif %}
+
+          {% for x in blog%}
+          <div class="contenedor-post-blog">
+            <div class="row">
+              <div class="col-5">
+                {% if x.imagen %}
+                  <img class="" height= "" width="" id="imagen-post-blog" src= {{x.imagen.url}} >
+                {% else %}
+                  <img src="{% static 'img/sin-imagen_cool.jpg'%}" class="" style="" id="imagen-post-blog" alt="...">
+                {% endif %}
+              </div>
+              
+              <div class="col-7" id="titulo-contenido-fecha">
+                <div class="contenedor-titulo">
+                  <h2 class="titulo-post-blog"><a href="{% url 'post_detail' pk=x.pk %}" class="enlace-post-detail"><strong>{{x.titulo}}</strong></a></h2>
+                </div>
+                <hr>
+                <div class="contenedor-intro">
+                  <p class="intro-post-blog">
+                    <br>
+                    <em>{{ x.introduccion }}</em>
+                  </p>
+                </div>
+
+                <div class="contenedor-fecha">
+                  <p class="fecha-post-blog">{{x.updated}}</p>
+                </div>  
+              </div>
+            </div>
+          </div>
+
+              <!-- facebook -->
+              <br>
+                {% comment %} }       <div class="fb-like" data-href="/127.0.0.1:8000/post/{{x}}" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="false"></div> {% endcomment %}
+              <div class="fb-comments" data-href="/127.0.0.1:8000/post/{{x}}"  data-width="auto" data-numposts="3"></div>
+                  <!-- fin facebook -->
+
+
+              <hr class="linea">
+              <hr class="linea">
+
+          {% endfor %}
+          
+        </nav>
+      </div>
+  
+      <div class="col-md-2 ">  
+        <nav  style="position: fixed; top: 120px ;">
+          <div class="btn-group-vertical d-grid gap-2 " role="group" aria-label="Vertical button group" >
+            <a class="btn btn-secondary "  href="{% url 'post'  %}">TODOS</a>
+          
+            {% for c, x in cat.items %}
+          
+            <a href="{% url 'post' %}?categoria={{c}}"   class="btn btn-secondary " >{{x.categoria.upper}}</a>
+            {% comment %} <aggle="button" class="btn btn-primary"  href="{% url 'post' %}?categoria={{x}}&categorias={{cat}}">{{c}}</a> {% endcomment %}
+          
+            {% endfor %}
+              
+          </div>
+        </nav> 
+      </div>
+    {% endif %}
+  </div>
+</nav>
+
+{%endblock%}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{%load static%}
+{% block title %} Contacto {%endblock%}
+{% block content%}
+{% load crispy_forms_tags %}
+<div class="container  py-5 " style="background-color: rgba(225, 215, 205 , 0.65);">
+
+    <div class="row">
+        <div class="col-lg-6 ">
+         
+            <h3>CONTACTO</h3>
+            <h4>Llamanos al <a href="tel:3644105595" alt="_blank">(364)4105595</a><p></h4>
+            <h5>Dorrego N° 478 - (3700) Presidencia Roque Sáenz Peña - Chaco</h5><br>
+            
+            <!-- formulario de contacto -->
+
+            <h4>Déjanos algún comentario</4><br>
+            <form action="/contacto/" method="post">
+                {% csrf_token %}
+             
+                    <table >
+                      {{ form|crispy }}
+
+                    </table>
+                    <input type="submit" value="Enviar">
+              
+            </form>
+            <!-- fin formulario de contacto -->
+        </div>
+        {{ mesages.errror }}
+        <div class="col-lg-6">
+            <!-- mapa google -->
+            <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3">
+                <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div><script>(function () {
+                var setting = {"height":463,"width":456,"zoom":16,"queryString":"Dorrego 478, Presidencia Roque Sáenz Peña, Chaco, Argentina","place_id":"Ej1Eb3JyZWdvIDQ3OCwgUHJlc2lkZW5jaWEgUm9xdWUgU8OhZW56IFBlw7FhLCBDaGFjbywgQXJnZW50aW5hIjESLwoUChIJL8aLxuMsQZQRvambJLRRqOoQ3gMqFAoSCfG0yjf9LEGUEbk5jn2M4YKu","satellite":false,"centerCoord":[-26.786063861459336,-60.44561497591857],"cid":"0xecccf198064f1258","lang":"es","cityUrl":"/argentina/presidencia-roque-saenz-pena-56091","cityAnchorText":"Mapa de Roque Sáenz Peña, Central North-West Argentina, Argentina","id":"map-9cd199b9cc5410cd3b1ad21cab2e54d3","embed_id":"798434"};
+                var d = document;
+                var s = d.createElement('script');
+                s.src = 'https://1map.com/js/script-for-user.js?embed_id=798434';
+                s.async = true;
+                s.onload = function (e) {
+                  window.OneMap.initMap(setting)
+                };
+                var to = d.getElementsByTagName('script')[0];
+                to.parentNode.insertBefore(s, to);
+              })();</script><a href="https://1map.com/es/map-embed"></a></div>
+            </div>
+            <!-- fin Mapa Google-->
+        </div>
+    </div>
+</div>
+{% endblock%}

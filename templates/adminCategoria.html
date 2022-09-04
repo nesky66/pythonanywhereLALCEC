@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{%load static%}
+{% block title %}Admin Categorias{%endblock%}
+{% block content%}
+<div class="container pt-8 mx-auto">
+  <div class="row" style="width:70%">
+    <div class="col-6" >
+      <form action="" method='post'>{% csrf_token %}
+      <h2>Agrega una Categoría</h2>
+      {{ form|crispy }}
+
+      <button type="submit" class="btn btn-primary">Agregar</button>
+     
+      {{mensaje1}}
+      </form>
+    </div>
+
+    <div class="col-6" style="width:50%">
+      <h2>Selecciona una categoria a eliminar</h2>
+      <p>Si elimina una categoría asignada a varios Post, estos también serán eliminados !</p>
+      <form action="">
+        <div class="form-floating mb-3 " >
+          <select class="form-select "  style="height:100px;" multiple  name="lista" >
+            {% for c,d in cat.items %}
+    
+            <option value={{c}}>{{d.upper}}</option>
+
+            {% endfor %}
+          </select>
+      
+        </div>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+       
+        {{mensaje2}}
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

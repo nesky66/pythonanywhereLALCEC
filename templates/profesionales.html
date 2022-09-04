@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{%load static%}
+{% block title %} Profesionales {%endblock%}
+{% block content %}
+
+<link rel="stylesheets" href="estilos.css">
+
+<div class="container">
+  <div class="py-5 px-5 rounded">
+    <div class="card mb-5 card-section border border-secondary my-4 mt-4" style="max-width: 1075px;">
+      <div class="row g-2 pt-3 mx-2 ">
+          <div class="col-md-3">
+            <img src="{% static "img/chequeos.jpg"%}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h3 class="mt-4 card-title colortitle text-center fw-bold text-decoration-underline">HACETE LOS CHEQUEOS CON NOSOTROS</h3><br> 
+              <h4 class="mt-4 card-title fw-normal">- Contamos con profesionales altamente capacitados.</h4>
+              <h5 class="mt-5 card-title fw-normal ">Un estudio a tiempo puede salvarte la vida 🧡</h5>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    
+  <div class="row row-cols-5 row-cols-md-4 g-3">
+    <div class="col">
+     <div class="card border border-secondary h-100">
+        <img src="{% static "img/Acosta.jpg"%}" class="card-img-top" alt="...">
+          <div class="card-body">
+           <h4 class="card-title colortitle text-center mt-2">GINECOLOGO</h4>
+            <p class="card-text mt-4 fs-5">- Dr. Walter Acosta</p><br><br><br>
+          </div>
+          <ul class="list-group list-group-flush fs-5">
+          <li class="list-group-item">• Consulta ginecológica y mamaria</li>
+          <li class="list-group-item">• PAP</li>
+          </ul>
+          <div class="card-footer">
+          <a href="{% url 'contacto' %}" class="btn btn-secondary">SOLICITAR TURNO</a>
+          </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card border border-secondary h-100">
+        <img class= "imagen" src="{% static "img/muchut.jpg"%}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h4 class="card-title colortitle text-center mt-2">NUTRICIONISTA</h4>
+            <p class="card-text mt-4 fs-5">- Lic. Luciana Muchut</p>
+          </div>
+        <ul class="list-group list-group-flush fs-5">
+        <li class="list-group-item">• Consulta nutricional</li>
+        <li class="list-group-item">• Asesoramiento nutricional en oncología</li>
+        </ul>
+        <div class="card-footer">
+          <a href="{% url 'contacto' %}" class="btn btn-secondary">SOLICITAR TURNO</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card border border-secondary h-100">
+        <img src="{% static "img/Saccani.jpg"%}" class="card-img-top" alt="img-fluid">
+        <div class="card-body">
+          <h4 class="card-title colortitle text-center mt-2">MEDICINA CLINICA</h4>
+          <p class="card-text mt-4 fs-5">- Dra. Gabriela Saccari </p>
+        </div>
+        <ul class="list-group list-group-flush fs-5">
+          <li class="list-group-item">• Atención a pacientes con enfermedades crónicas no transmisibles</li>
+          <li class="list-group-item">• Diabetes 
+          <li class="list-group-item">• Hipetensión arterial</li>
+          <li class="list-group-item">• Insuficiencia cardíaca</li>
+          <li class="list-group-item">• Tratamiento de tiroides</li>
+        </ul>
+        <div class="card-footer">
+          <a href="{% url 'contacto' %}" class="btn btn-secondary">SOLICITAR TURNO</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card border border-secondary h-100">
+        <img src="{% static "img/Manzino2.jpg"%}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h4 class="card-title colortitle text-center mt-2">NUTRICIONISTA</h4>
+            <p class="card-text mt-4 fs-5">- Lic. Rocio Manzino</p>
+          </div>
+          <ul class="list-group list-group-flush fs-5">
+            <li class="list-group-item">• Consulta Nutricional</li>
+            <li class="list-group-item">• Atención consultorio<br>Jueves 16 a 19 hs</li>
+          </ul>
+        <div class="card-footer">
+          <a href="{% url 'contacto' %}" class="btn btn-secondary">SOLICITAR TURNO</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+    
+</div> 
+
+
+{% endblock%}

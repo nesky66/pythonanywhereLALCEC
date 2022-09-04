@@ -1,0 +1,57 @@
+
+{% extends 'base.html' %}
+
+{%load static%}
+{% block title %}Campañas{%endblock%}
+{% block content%}
+
+<div class="container mt-3">
+    <h2>Comentarios</h2>
+    <p>Comentario realizado por la gente:</p>  
+    <form method='post'>   {% csrf_token %}  
+            
+    <table class="table" >
+     
+      <thead style="background-color: rgba(135, 133, 133 , 0.65);">
+       
+        <tr >
+          <th>NOMBRE</th>
+          <th>TELEFONO</th>
+          <th>DOMICILIO</th>
+          <th>FECHA</th>
+          <th>COMENTARIO</th>
+          <th>
+            <button type="submit" class="btn btn-danger" >Eliminar</button> 
+          </th>
+        </tr>
+      </thead>
+   
+      <tbody style="background-color: rgba(225, 215, 205 , 0.65);">
+        {% for id, obj in comentarios.items%}
+        <tr>
+          <td>{{obj.nombre}}</td>
+          <td>{{obj.telefono}}</td>
+          <td>{{obj.domicilio}}</td>
+          <td>{{obj.created}}</td>
+          <td>{{obj.comentario}}</td>
+          <td>
+            <div class="form-check " >
+              
+                <input class="form-check-input" type="checkbox" style="margin-left:auto; margin-right:auto;"  name="eliminar" value="{{id}}" >
+                <label class="form-check-label"></label>
+             
+            </div>
+          </td>
+         
+        </tr>
+        
+       {% endfor %}
+
+      
+
+      </tbody>
+    </table>
+  </form>
+  </div>
+
+  {% endblock %}

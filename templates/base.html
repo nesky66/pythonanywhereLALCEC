@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>{% block title %}  {%endblock%}</title>
+      {% load static %}
+     <!-- Font-Awesome -->
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"><!--para que funcione boton de agregar post-->
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"><!--creo que es para que aparezca el lapiz para editar post-->
+      <link rel=stylesheet href:"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+      <link rel=stylesheet   TYPE="text/css"  href="{% static "css/estilos.css" %}">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      {% load bootstrap5 %}
+
+      {% bootstrap_css %}
+
+      {% bootstrap_javascript %}
+
+      {% bootstrap_messages %}
+
+      
+  <style>
+  /* Make the image fully responsive */
+  .carousel-inner img {
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+  </head>
+  
+  <body>
+ 
+    <header class="header sticky-top">
+      <div class="titulo">
+        Liga Argentina de Lucha Contra el Cáncer
+      </div>  
+      <nav class='navbar navbar-expand-sm  navbar-dark sticked-top'>
+       
+        <div class="container-md text-faded" > 
+          
+          <ul class="navbar-nav ml-auto ">
+            <img src="{% static "img/lalcec_logo.jpg" %}" width="75" height="75" class="rounded-circle" >
+            <a class="navbar-brand " href="{% url 'inicio'%}">
+              <img src="{% static "img/LaCasita2.png"%}" width="80" height="80">
+            </a>
+          </ul> 
+          <ul class="navbar-nav mx-auto titulosBarra">
+          
+            <li class="nav-item mx-auto ">
+
+              <a class="nav-link  text-expanded font-1"  href="{% url 'post'%}" >BLOG</a>
+            </li>
+            <li class="nav-item mx-auto" >
+              <a class="nav-link font-1"  href="{% url 'campanias' %}" >CAMPAÑAS</a>
+            </li>
+           
+            <li class="nav-item mx-auto">
+              <a class="nav-link font-1" href="{% url 'mision'%}" >MISION</a>
+            </li>
+            <li class="nav-item mx-auto">
+              <a class="nav-link font-1" href="{% url 'profesionales'%}" >PROFESIONALES</a>
+            </li>
+                  
+              {% if user.is_authenticated %}
+                
+            <li class="nav-item dropdown mx-auto">
+              <a class="nav-link dropdown-toggle font-1" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">ADMINISTRADOR</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="{% url 'registro' %}">Registro de Usuarios</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'admincat'%}">Administrar Categorías</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'post_new' %}">Agregar Blogs</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'vista_post' %}">Editar Blogs</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'comentarios' %}">Comentarios</a>
+                </li>
+              </ul>
+            </li>
+              {% comment %} <li class="nav-item ">
+                <a class="nav-link font-1" href="#" style='text-align: center;'>ADMINISTRADOR</a>
+              </li> {% endcomment %}
+                  
+            {% endif %} 
+                
+          </ul>
+                
+          <ul class="nav justify-content-end">
+                  
+                  <!-- Iconos de paginas sociales y contacto -->
+
+                  <section class="buttons">
+                    <a  class="fa fa-facebook" href="https://es-la.facebook.com/LALCECHACO/" target="_blank" rel="noreferrer noopener" title="Facebook"></a>
+                    <a  href="https://www.instagram.com/lalcecspchaco/?hl=es" target="_blank" rel="noreferrer noopener" class="fa fa-instagram" title="Instagram"></a>
+                    <a href="{% url 'contacto' %}" class="fa fa-envelope" title="Contacto"></a>
+                  
+                  </section>
+            
+                    <!-- Icono de login -->
+            
+          <ul class="navbar-nav ">
+            <li class="nav-item font-1" >
+                        
+              {% if user.is_authenticated %}
+                 
+              <a class="nav-link py-2 px-0 px-lg-2" href="{% url 'logout' %}"> 
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="cyan" class="bi bi-person-fill" viewBox="0 0 16 16"><title>{{ user.username.upper }}</title>
+                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                </svg>
+              </a>
+                     
+              {% else %}
+                        
+              <a class="nav-link py-2 px-0 px-lg-2" href="{% url 'login' %}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#2b2d42" class="bi bi-person" viewBox="0 0 16 16"><title>LOGUIN</title>
+                  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                </svg>
+              </a> 
+                        
+                        
+              {% endif %}
+                        
+            </li>
+          </ul>                
+                
+            {% comment %} {% if user.is_authenticated %}
+            
+            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            {% endif %}   {% endcomment %}
+        </div>   
+      </nav>
+    </header>
+
+    {% block content %}
+    {% endblock content %}
+
+    <!-- Posteo facebook -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v14.0" nonce="KNIfzx54"></script>
+    <!-- end Posteo facebook -->
+  </body>
+
+  <footer>
+   
+  <div class="container__footer">
+      <div class="row">
+        <div class="col-md-2">
+            <div class="box__footer">
+              <div class="logo">
+               <img src="{% static 'img/LaCasita3.png' %}"  alt="Logo de SLee Dw">
+              </div>
+            </div>
+        </div>
+            
+        <div class="col-md-7"> 
+        <div class="box__footer">
+        <div class="terms">
+          <p>LALCEC, tiene como objetivo conseguir tratamiento para todos, alcanzar estilos de vida saludables, 
+            ofrecer servicios de detección precoz y sumar voluntades para concientizar a la población sobre la campaña de lucha contra el cáncer. </p>
+        </div>
+        </div>  
+        </div>  
+
+        <div class="col-md-3">
+        <div class="box__footer">
+            <h3 class= "md-4">Staff</h3>
+            <h4>
+            <ul>
+            <li><a href="https://github.com/nesky66" style="text-decoration: none;" target="_blank">Acevedo Néstor</a></li>
+            <li><a href="https://www.linkedin.com/in/lucas-alegre-56a94b175" style="text-decoration: none;" target="_blank">Alegre Lucas</a> </li>
+            <li><a href="https://www.linkedin.com/in/gaston-alvarin" style="text-decoration: none;" target="_blank">Alvarin Gastón</a></li>
+            <li><a href="https://github.com/martinechava" style="text-decoration: none;" target="_blank">Echavarria Martín</a></li>
+            <li><a href="https://www.linkedin.com/in/guillermo-mathieu-b547a124a" style="text-decoration: none;" target="_blank">Mathieu Guillermo </a></li>
+            <li><a href="https://www.linkedin.com/in/cynthianataliasotelo" style="text-decoration: none;" target="_blank">Sotelo Cynthia</a> </h4></li>
+            </ul>              
+        </div>   
+        </div>            
+  
+      </div>
+    </div>
+
+    <div class="box__copyright">
+      <hr>
+      <p>© 2022 - <b>Informatorio Chaco-Resistencia</b> - Todos los Derechos Reservados.</p>
+    </div>
+  </footer>
+
+ </html>

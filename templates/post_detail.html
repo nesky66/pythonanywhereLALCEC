@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="contenedor-post-detail">
+    <a id="boton-atras" href="javascript:history.back()" class="boton-enlace"> Volver </a>
+    {% comment %} <a id="boton-atras" href="{% url 'post' %}" class="boton-enlace"><span ></span>Atras</a> {% endcomment %}
+    <h1 class="titulo-post-detail"> 
+        {{ post.titulo }} 
+    </h1>
+    <h4 id="update-post-detail"> {{post.updated}} </h4>
+    
+    
+    <div id="marco">
+        <p style="padding: 5px 8px 0px; text-style:bo "><strong>{{post.categoria.categoria.upper}}</strong></p>
+    {% comment %} <div class="caja_view"> {% endcomment %}
+        {% if post.imagen %}
+        {% comment %} <div id="marco"> {% endcomment %}
+            <img class="imagen-post-detail" src= {{post.imagen.url}} > 
+        {% comment %} </div> {% endcomment %}
+        {% else %}
+        {% comment %} <div id="marco"> {% endcomment %}
+            <img src="{% static 'img/sin-imagen_cool.jpg'%}" class="imagen-post-detail">
+        {% comment %} </div> {% endcomment %}
+        {% endif %}
+       
+        <div class="texto_sub" style="color:white">{{post.introduccion}}</div>
+      
+    {% comment %} </div> {% endcomment %}
+    </div>
+
+    <div class="cuadrado">
+        <div class="contenido-post-detail">
+            <p style="text-align: justify">{{post.contenido|linebreaksbr}}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

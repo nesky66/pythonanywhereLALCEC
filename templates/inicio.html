@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{%load static%}
+{% block title %} LALCEC {%endblock%}
+{% block content%}
+
+<div>
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static "img/banner1.png" %}" class="d-block w-100" alt="5">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static "img/banner2.png" %}" class="d-block w-100" alt="5">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static "img/banner3.png" %}" class="d-block w-100" alt="5">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+
+
+
+<div class="container">
+
+<!--
+ <img src="{% static "img/lalcecSP.png" %}" class='rounded mt-5 mx-auto d-block' width="400" height="200" background: >
+-->   
+
+    <div class="intro-text left-0 text-center bg-faded p-5 rounded mt-5">
+      <div class="p-5 mb-2 bg-white opacity-75">
+        <div class="colortitle">
+            <h1 class="section-heading p-2 mb-2 w-100">
+              <p class="fw-bold text-uppercase mt-5"> "La actitud mata cualquier cáncer"</p><br>
+            </h1>
+        </div>    
+        <h1 class="fw-bold text-black ">¡LUCHA, SONRIE Y CUIDATE!</h1><br><br>
+            
+        <span class= "mt-5 fst-italic fs-2 text-dark p-2"> Todos los años mueren 60.000 personas por cáncer en Argentina.</span> 
+
+      </div>
+    </div>
+      
+        
+</div>  
+      
+  
+          
+</div>
+    
+
+
+{% endblock %}
+
