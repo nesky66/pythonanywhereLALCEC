@@ -72,7 +72,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(os.path.dirname(BASE_DIR),'templates')],
-        
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -141,7 +141,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 STATICFILES_DIRS = (os.path.join(os.path.dirname(BASE_DIR),'static'),)
-                          
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -155,9 +155,9 @@ MESSAGE_TAGS={
     mensajes_de_error.SUCCESS:'succes',
     mensajes_de_error.WARNING:'warning',
     mensajes_de_error.ERROR:'danger',
-    
-    
-    
+
+
+
 }
 
 EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
@@ -167,7 +167,7 @@ EMAIL_PORT=587
 EMAIL_HOST_USER="nesky66.gmail.com"
 EMAIL_HOST_password="sys64738"
 
-# CRISPY_TEMPLATE_PACK='bootstrap4'
+CRISPY_TEMPLATE_PACK='bootstrap4'
 
 
 DEBUG = True
@@ -177,10 +177,10 @@ ALLOWED_HOSTS = ['*']
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2', 
-#         'NAME': 'lalcec', 
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'lalcec',
 #         'USER': 'postgres',
-#         'PASSWORD': 'sys64738', 
+#         'PASSWORD': 'sys64738',
 #         'HOST': 'localhost',
 #         'PORT': '',
 #     }

@@ -15,7 +15,7 @@
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h3 class="mt-4 card-title colortitle text-center fw-bold text-decoration-underline">HACETE LOS CHEQUEOS CON NOSOTROS</h3><br> 
+              <h3 class="mt-4 card-title colortitle text-center fw-bold text-decoration-underline">HACETE LOS CHEQUEOS CON NOSOTROS</h3><br>
               <h4 class="mt-4 card-title fw-normal">- Contamos con profesionales altamente capacitados.</h4>
               <h5 class="mt-5 card-title fw-normal ">Un estudio a tiempo puede salvarte la vida 🧡</h5>
             </div>
@@ -26,7 +26,7 @@
 
 
 
-    
+
   <div class="row row-cols-5 row-cols-md-4 g-3">
     <div class="col">
      <div class="card border border-secondary h-100">
@@ -47,7 +47,7 @@
 
     <div class="col">
       <div class="card border border-secondary h-100">
-        <img class= "imagen" src="{% static "img/muchut.jpg"%}" class="card-img-top" alt="...">
+        <img class= "imagen" src="{% static "img/Muchut.jpg"%}" class="card-img-top" alt="...">
           <div class="card-body">
             <h4 class="card-title colortitle text-center mt-2">NUTRICIONISTA</h4>
             <p class="card-text mt-4 fs-5">- Lic. Luciana Muchut</p>
@@ -71,7 +71,7 @@
         </div>
         <ul class="list-group list-group-flush fs-5">
           <li class="list-group-item">• Atención a pacientes con enfermedades crónicas no transmisibles</li>
-          <li class="list-group-item">• Diabetes 
+          <li class="list-group-item">• Diabetes
           <li class="list-group-item">• Hipetensión arterial</li>
           <li class="list-group-item">• Insuficiencia cardíaca</li>
           <li class="list-group-item">• Tratamiento de tiroides</li>
@@ -99,9 +99,29 @@
       </div>
     </div>
 
+    <div class="col">
+      <div class="card border border-secondary h-100">
+        <img src="{% static "img/roberto.jpg"%}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h4 class="card-title colortitle text-center mt-2">GINECOLOGO</h4>
+            <p class="card-text mt-4 fs-5">- Dr. Roberto Gómez</p>
+          </div>
+          <ul class="list-group list-group-flush fs-5">
+            <li class="list-group-item">• Consulta Ginecológica y Mamaria</li>
+            <li class="list-group-item">• PAP</li>
+            <li class="list-group-item">• Biopsia ginecológica</li>
+            <li class="list-group-item">• Colposcopía</li>
+          </ul>
+        <div class="card-footer">
+          <a href="{% url 'contacto' %}" class="btn btn-secondary">SOLICITAR TURNO</a>
+        </div>
+      </div>
+    </div>
+
+
   </div>
-    
-</div> 
+
+</div>
 
 
 {% endblock%}
